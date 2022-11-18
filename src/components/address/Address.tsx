@@ -1,8 +1,10 @@
 import React from 'react';
 import HeaderForm from '../layout/headerFrom/headerForm';
-type Props = {};
+type Props = {
+  register: any;
+};
 
-const Address = (props: Props) => {
+const Address = ({ register }: Props) => {
   return (
     <>
       <div className="relative mb-10 flex flex-col space-y-10 border bg-[#D3E4EC]  py-8 w-full">
@@ -11,6 +13,7 @@ const Address = (props: Props) => {
           <label className="flex flex-col w-full " htmlFor="">
             <span className="pb-2 ">Your address</span>
             <input
+              {...register('startAddress')}
               className="contactInput "
               type="text"
               placeholder="ADDRESS, ZIP CODE, CITY "
@@ -19,6 +22,7 @@ const Address = (props: Props) => {
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">Destination address</span>
             <input
+              {...register('finalAddress')}
               className="contactInput"
               type="text"
               placeholder="ADDRESS, ZIP CODE, CITY "
