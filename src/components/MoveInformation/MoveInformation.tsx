@@ -1,12 +1,19 @@
 import React from 'react';
 import HeaderForm from '../layout/headerFrom/headerForm';
-type Props = { register: any };
+type Props = {
+  register: any;
+  estimatePrice: string;
+};
 
-const MoveInformation = ({ register }: Props) => {
+const MoveInformation = ({ register, estimatePrice }: Props) => {
   return (
     <>
       <div className="relative mb-10 flex flex-col space-y-10 border bg-[#D3E4EC]  py-8 w-full uppercase text-sm">
-        <HeaderForm title="Move details" formNumber="3" />
+        <HeaderForm
+          title="Move details"
+          formNumber="3"
+          estimatePrice={estimatePrice}
+        />
         <div className="flex justify-between space-x-7 px-4 ">
           <label className="flex flex-col w-full " htmlFor="">
             <span className="pb-2">residential area square meters</span>
@@ -30,7 +37,11 @@ const MoveInformation = ({ register }: Props) => {
         <div className="flex justify-between space-x-5 px-4 w-full">
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">any bulky items such as a piano</span>
-            <input className="contactInput bg-white rounded" type="text" />
+            <input
+              className="contactInput bg-white rounded"
+              type="text"
+              {...register('bulkyItems')}
+            />
           </label>
           <div className="flex flex-col  w-full justify-center items-start">
             <h2 className="mb-5">Help for packing?</h2>

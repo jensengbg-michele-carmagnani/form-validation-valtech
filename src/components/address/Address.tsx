@@ -2,13 +2,18 @@ import React from 'react';
 import HeaderForm from '../layout/headerFrom/headerForm';
 type Props = {
   register: any;
+  estimatePrice: string;
 };
 
-const Address = ({ register }: Props) => {
+const Address = ({ register, estimatePrice }: Props) => {
   return (
     <>
       <div className="relative mb-10 flex flex-col space-y-10 border bg-[#D3E4EC]  py-8 w-full">
-        <HeaderForm title="Address" formNumber="2" />
+        <HeaderForm
+          title="Address"
+          formNumber="2"
+          estimatePrice={estimatePrice}
+        />
         <div className="flex justify-between space-x-7 px-4 uppercase text-sm">
           <label className="flex flex-col w-full " htmlFor="">
             <span className="pb-2 ">Your address</span>

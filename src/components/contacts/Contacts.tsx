@@ -3,12 +3,17 @@ import HeaderForm from '../layout/headerFrom/headerForm';
 
 type Props = {
   register: any;
+  estimatePrice: string;
 };
 
-const Contacts = ({ register }: Props) => {
+const Contacts = ({ register, estimatePrice }: Props) => {
   return (
     <div className="relative mb-10 flex flex-col space-y-10 border bg-[#D3E4EC]  py-10 w-full">
-      <HeaderForm title="Contact" formNumber="1" />
+      <HeaderForm
+        title="Contact"
+        formNumber="1"
+        estimatePrice={estimatePrice}
+      />
       <div className="flex justify-between space-x-7 px-4 uppercase text-sm ">
         <label className="flex flex-col w-full " htmlFor="">
           <span className="pb-2">First Name</span>
@@ -24,7 +29,7 @@ const Contacts = ({ register }: Props) => {
           <input
             {...register('lastName')}
             className="contactInput"
-            placeholder="FAMILY NAME"
+            placeholder="LAST NAME"
             type="text"
           />
         </label>
