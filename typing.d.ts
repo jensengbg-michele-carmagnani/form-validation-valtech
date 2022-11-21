@@ -11,7 +11,9 @@ export type Inputs = {
   helpForPackingYes: string;
   helpForPackingNo: string;
 };
-
-export type Uuidv4 = {
-  uuidv4: string | number | bigint | undefined | object | function;
+type Offer = {
+  distance: string;
+  offer: number;
+  offerNumber: string;
 };
+export type OfferDetails = Inputs & Offer;

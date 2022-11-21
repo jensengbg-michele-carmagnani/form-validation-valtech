@@ -3,9 +3,10 @@ import HeaderForm from '../layout/headerFrom/headerForm';
 type Props = {
   register: any;
   estimatePrice: string;
+  inputError: any;
 };
 
-const MoveInformation = ({ register, estimatePrice }: Props) => {
+const MoveInformation = ({ register, estimatePrice, inputError }: Props) => {
   return (
     <>
       <div className="relative mb-10 flex flex-col space-y-10 border bg-[#D3E4EC]  py-8 w-full uppercase text-sm">
@@ -18,24 +19,29 @@ const MoveInformation = ({ register, estimatePrice }: Props) => {
           <label className="flex flex-col w-full " htmlFor="">
             <span className="pb-2">residential area square meters</span>
             <input
+              placeholder="e.g. 55 m2"
               className="contactInput "
-              type="text"
+              type="number"
               {...register('squareMeters', {
                 required: 'This field is required',
                 minLength: {
                   value: 2,
-                  message: 'Minimum length should be 10 ',
+                  message: 'Min square meters to calculate is 49',
                 },
               })}
             />
+            <p className="text-red-500 mt-3">
+              {inputError.squareMeters?.message}
+            </p>
           </label>
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">
               possible exchange, attic, storage room ect... square meters
             </span>
             <input
+              placeholder="e.g. 15 m2"
               className="contactInput"
-              type="text"
+              type="number"
               {...register('extraSquareMeters')}
             />
           </label>
@@ -44,6 +50,7 @@ const MoveInformation = ({ register, estimatePrice }: Props) => {
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">any bulky items such as a piano</span>
             <input
+              placeholder="Piano"
               className="contactInput bg-white rounded"
               type="text"
               {...register('bulkyItems')}

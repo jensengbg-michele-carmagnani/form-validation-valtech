@@ -22,7 +22,7 @@ const OfferPrice = ({ estimatePrice, totalDistance, onClick }: Props) => {
               Estimated price: {estimatePrice} kr before tax
             </h2>
             <h2 className="text-2xl font-semibold ">
-              Total distance between flats: {totalDistance}
+              Total distance between flats: {totalDistance} km
             </h2>
           </div>
           <div className="uppercase text-sm">

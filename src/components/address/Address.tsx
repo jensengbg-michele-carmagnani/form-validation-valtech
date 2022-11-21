@@ -4,9 +4,10 @@ import { Autocomplete } from '@react-google-maps/api';
 type Props = {
   register: any;
   estimatePrice: string;
+  inputError: any;
 };
 
-const Address = ({ register, estimatePrice }: Props) => {
+const Address = ({ register, estimatePrice, inputError }: Props) => {
   return (
     <>
       <div className="relative mb-10 flex flex-col space-y-10 border bg-[#D3E4EC]  py-8 w-full">
@@ -28,6 +29,9 @@ const Address = ({ register, estimatePrice }: Props) => {
                 placeholder="ADDRESS, ZIP CODE, CITY "
               />
             </Autocomplete>
+            <p className="text-red-500 mt-3">
+              {inputError.startAddress?.message}
+            </p>
           </label>
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">Destination address</span>
@@ -41,6 +45,9 @@ const Address = ({ register, estimatePrice }: Props) => {
                 placeholder="ADDRESS, ZIP CODE, CITY "
               />
             </Autocomplete>
+            <p className="text-red-500 mt-3">
+              {inputError.finalAddress?.message}
+            </p>
           </label>
         </div>
       </div>

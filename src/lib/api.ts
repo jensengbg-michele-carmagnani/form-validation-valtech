@@ -15,9 +15,13 @@ export const getPricing = async (
   try {
     const response = await fetch(url);
     const data = await response.json();
+    if (data === 0)
+      throw new Error('Something went wrong, please try again later');
     return data;
   } catch (error) {
-    console.log(error);
+    let message = 'Unknown Error';
+    if (error instanceof Error) message = error.message;
+    return message;
   }
 };
 
@@ -34,7 +38,8 @@ export const getDistance = async (
   });
 
   return {
-    distance: results.routes?.[0].legs?.[0].distance?.text,
+    distance:
+      results.routes?.[0].legs?.[0].distance?.text.split(/(?<=^\S+)\s/)[0],
     duration: results.routes?.[0].legs?.[0].duration?.text,
   };
 };
