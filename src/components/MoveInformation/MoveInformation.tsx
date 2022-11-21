@@ -20,7 +20,13 @@ const MoveInformation = ({ register, estimatePrice }: Props) => {
             <input
               className="contactInput "
               type="text"
-              {...register('squareMeters')}
+              {...register('squareMeters', {
+                required: 'This field is required',
+                minLength: {
+                  value: 2,
+                  message: 'Minimum length should be 10 ',
+                },
+              })}
             />
           </label>
           <label className="flex flex-col w-full" htmlFor="">

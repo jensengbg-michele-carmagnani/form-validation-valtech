@@ -4,9 +4,10 @@ import HeaderForm from '../layout/headerFrom/headerForm';
 type Props = {
   estimatePrice: string;
   totalDistance: string;
+  onClick: () => void;
 };
 
-const OfferPrice = ({ estimatePrice, totalDistance }: Props) => {
+const OfferPrice = ({ estimatePrice, totalDistance, onClick }: Props) => {
   return (
     <div className="bg-[#D3E4EC] w-full relative pt-20 pb-5 px-5 ">
       <HeaderForm
@@ -21,7 +22,7 @@ const OfferPrice = ({ estimatePrice, totalDistance }: Props) => {
               Estimated price: {estimatePrice} kr before tax
             </h2>
             <h2 className="text-2xl font-semibold ">
-              Total distance between flats: {totalDistance} km
+              Total distance between flats: {totalDistance}
             </h2>
           </div>
           <div className="uppercase text-sm">
@@ -39,7 +40,9 @@ const OfferPrice = ({ estimatePrice, totalDistance }: Props) => {
           </div>
         </div>
 
-        <button className="heroButton h-16 self-end">Accept Offer</button>
+        <button className="heroButton h-16 self-end" onClick={onClick}>
+          Accept Offer
+        </button>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-
 import { getPriceApi } from './getPriceApi';
 
 export const getPricing = async (
@@ -22,14 +21,20 @@ export const getPricing = async (
   }
 };
 
-export const getDistance = async () => {
-  try {
-    const res = await fetch(
-      `https://maps.googleapis.com/maps/api/distancematrix/json?origins=Washington%2C%20DC&destinations=New%20York%20City%2C%20NY&units=imperial&key=AIzaSyDCve4y8-ezYrWvEb0KEawyvuerIsZZUpA`
-    );
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+export const getDistance = async (
+  startAddress: string,
+  finalAddress: string
+) => {
+  const directionService = new google.maps.DirectionsService();
+
+  const results = await directionService.route({
+    origin: startAddress,
+    destination: finalAddress,
+    travelMode: google.maps.TravelMode.DRIVING,
+  });
+
+  return {
+    distance: results.routes?.[0].legs?.[0].distance?.text,
+    duration: results.routes?.[0].legs?.[0].duration?.text,
+  };
 };

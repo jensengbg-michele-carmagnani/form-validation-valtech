@@ -19,7 +19,10 @@ const Contacts = ({ register, estimatePrice }: Props) => {
           <span className="pb-2">First Name</span>
           <input
             className="contactInput"
-            {...register('firstName')}
+            {...register('firstName', {
+              required: 'This field is required',
+              minLength: { value: 4, message: 'Minimum length should be 4' },
+            })}
             placeholder="NAME"
             type="text"
           />
@@ -27,7 +30,10 @@ const Contacts = ({ register, estimatePrice }: Props) => {
         <label className="flex flex-col w-full" htmlFor="">
           <span className="pb-2">Last Name</span>
           <input
-            {...register('lastName')}
+            {...register('lastName', {
+              required: 'This field is required',
+              minLength: { value: 4, message: 'Minimum length should be 4' },
+            })}
             className="contactInput"
             placeholder="LAST NAME"
             type="text"
@@ -38,7 +44,10 @@ const Contacts = ({ register, estimatePrice }: Props) => {
         <label className="flex flex-col w-full " htmlFor="">
           <span className="pb-2">Email</span>
           <input
-            {...register('email')}
+            {...register('email', {
+              required: 'This field is required',
+              minLength: { value: 4, message: 'Minimum length should be 4' },
+            })}
             className="contactInput bg-white rounded"
             type="email"
             placeholder="EMAIL"
@@ -47,7 +56,10 @@ const Contacts = ({ register, estimatePrice }: Props) => {
         <label className="flex flex-col w-full " htmlFor="">
           <span className="pb-2">Phone number</span>
           <input
-            {...register('phoneNumber')}
+            {...register('phoneNumber', {
+              required: 'This field is required',
+              minLength: { value: 4, message: 'Minimum length should be 4' },
+            })}
             className="contactInput"
             type="text"
             placeholder="PHONE NUMBER"

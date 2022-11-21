@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderForm from '../layout/headerFrom/headerForm';
+import { Autocomplete } from '@react-google-maps/api';
 type Props = {
   register: any;
   estimatePrice: string;
@@ -17,21 +18,29 @@ const Address = ({ register, estimatePrice }: Props) => {
         <div className="flex justify-between space-x-7 px-4 uppercase text-sm">
           <label className="flex flex-col w-full " htmlFor="">
             <span className="pb-2 ">Your address</span>
-            <input
-              {...register('startAddress')}
-              className="contactInput "
-              type="text"
-              placeholder="ADDRESS, ZIP CODE, CITY "
-            />
+            <Autocomplete className="w-full">
+              <input
+                {...register('startAddress', {
+                  required: 'This field is required',
+                })}
+                className="contactInput "
+                type="text"
+                placeholder="ADDRESS, ZIP CODE, CITY "
+              />
+            </Autocomplete>
           </label>
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">Destination address</span>
-            <input
-              {...register('finalAddress')}
-              className="contactInput"
-              type="text"
-              placeholder="ADDRESS, ZIP CODE, CITY "
-            />
+            <Autocomplete>
+              <input
+                {...register('finalAddress', {
+                  required: 'This field is required',
+                })}
+                className="contactInput"
+                type="text"
+                placeholder="ADDRESS, ZIP CODE, CITY "
+              />
+            </Autocomplete>
           </label>
         </div>
       </div>
