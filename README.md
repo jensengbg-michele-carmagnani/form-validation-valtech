@@ -44,3 +44,23 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Code conventions
+
+Please try to use Typescript and follow all the code isolated to that component inside the folder structure. If any code is to be used in several components, move it outside to the root.
+
+```bash
+
+- src
+  - hooks
+  - lib
+  - views
+    - Home
+    - ...
+  - components
+    - children-component
+- app.tsx
+- index.tsx
+
+    
+```
