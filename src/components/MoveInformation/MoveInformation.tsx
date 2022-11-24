@@ -36,7 +36,7 @@ const MoveInformation = ({ register, estimatePrice, inputError }: Props) => {
           </label>
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">
-              possible exchange, attic, storage room ect... square meters
+              possible exchange, attic, storage room ect...square meters
             </span>
             <input
               placeholder="e.g. 15 m2"

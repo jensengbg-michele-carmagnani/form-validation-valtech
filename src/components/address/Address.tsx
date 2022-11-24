@@ -19,12 +19,12 @@ const Address = ({ register, estimatePrice, inputError }: Props) => {
         <div className="flex justify-between space-x-7 px-4 uppercase text-sm">
           <label className="flex flex-col w-full " htmlFor="">
             <span className="pb-2 ">Your address</span>
-            <Autocomplete className="w-full">
+            <Autocomplete>
               <input
                 {...register('startAddress', {
                   required: 'This field is required',
                 })}
-                className="contactInput "
+                className="contactInput w-full"
                 type="text"
                 placeholder="ADDRESS, ZIP CODE, CITY "
               />
@@ -35,12 +35,12 @@ const Address = ({ register, estimatePrice, inputError }: Props) => {
           </label>
           <label className="flex flex-col w-full" htmlFor="">
             <span className="pb-2">Destination address</span>
-            <Autocomplete>
+            <Autocomplete className="w-full">
               <input
                 {...register('finalAddress', {
                   required: 'This field is required',
                 })}
-                className="contactInput"
+                className="contactInput w-full"
                 type="text"
                 placeholder="ADDRESS, ZIP CODE, CITY "
               />
